@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "better-ladders-justfatlard:block/rope_ladder"
+        },
+        "facing=east": {
+            "model": "better-ladders-justfatlard:block/rope_ladder",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "better-ladders-justfatlard:block/rope_ladder",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "better-ladders-justfatlard:block/rope_ladder",
+            "y": 270
+        }
+    }
+}

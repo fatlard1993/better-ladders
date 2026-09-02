@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "justfatlard.better_ladders.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "LadderSupportMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

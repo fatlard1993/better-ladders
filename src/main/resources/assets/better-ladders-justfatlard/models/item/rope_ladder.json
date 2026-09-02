@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "better-ladders-justfatlard:item/rope_ladder"
+  }
+}
