@@ -29,7 +29,10 @@ deal quicker and quieter to cut than nailed timber. Made from four string and a 
 rope ladder's whole bill of materials.
 
 Throw it at a wall or off a ledge and it unrolls downward, one piece of the stack per rung, until
-it reaches the ground or you run out.
+it reaches the ground or you run out. It takes its time about it: the first rung lands with the
+click and the rest follow it down, quickening as they go the way anything falling does, each one
+rattling as it lands, and the whole rope thuds and kicks up dust when it meets the floor. All of
+that is the server's doing, so a vanilla client sees and hears it too.
 
 - **Off a wall** it hangs on the face you clicked, the way one placed by hand would.
 - **Off the top of a block** it goes over the edge you are looking across, which is what anybody
@@ -40,6 +43,8 @@ it reaches the ground or you run out.
 **Cut it anywhere and everything under it comes down.** The only thing holding the rest of the rope
 up was the rung you just took, so the whole drop lands on the floor as rope ladder again - which is
 also how you get one back down off a cliff you have finished with, in one hit rather than sixty.
+Cut it while it is still falling, or put something in its way, and the part that never got down
+lands beside it as pieces.
 
 Nothing is lost doing it. Every rung dropped is a rung returned, so the coil and what it becomes
 are the same thing in two shapes.
@@ -56,27 +61,9 @@ content sync.
 vanilla's flat ladder and an untextured rope ladder; everything still works, including ladders
 standing unsupported and ropes unrolling, because all of that is decided on the server.
 
-## Installation
+## Development
 
-Install server-side alongside its declared dependencies (see `fabric.mod.json`); connecting clients
-need only Pandorical. Version targets live in `gradle.properties` (Minecraft, loader, Fabric API)
-and `fabric.mod.json` (Java).
-
-## Key Files
-
-| File | Responsibility |
-|------|---------------|
-| `Main.java` | Entry point; the rope ladder, and shipping the ladder model |
-| `RopeLadderItem.java` | A coil of ladder that unrolls itself |
-| `RopeLadder.java` | Unrolling one down whatever is under it |
-| `RopeLadderBlock.java` | A ladder that hangs, and what happens when it is cut |
-| `mixin/LadderSupportMixin.java` | A ladder holds itself up |
-
-## Art
-
-`generate_models.py` cuts the 3D ladder model, and `generate_icon.py` and `generate_textures.py`
-cut the icon and rope ladder sprite out of the vanilla jar. All three are deterministic; re-run
-them after a Minecraft version bump.
+Installing, the map of the source and the art pipeline are in [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## License
 

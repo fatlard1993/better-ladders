@@ -58,6 +58,7 @@ public class Main implements ModInitializer {
 
 		Registry.register(BuiltInRegistries.BLOCK, ROPE_LADDER_ID, ROPE_LADDER);
 		Registry.register(BuiltInRegistries.ITEM, ROPE_LADDER_ID, ROPE_LADDER_ITEM);
+		RopeLadder.init();
 
 		System.out.println("[" + MOD_ID + "] Loaded (server-side with Pandorical)");
 	}
