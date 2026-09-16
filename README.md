@@ -25,8 +25,8 @@ And a ladder whose wall is later mined stays hanging rather than popping off.
 ## Rope Ladder
 
 Its own block, not a ladder wearing a different name: rope rails with slats between them, a good
-deal quicker and quieter to cut than nailed timber. Made from four string and a stick, which is a
-rope ladder's whole bill of materials.
+deal quicker and quieter to cut than nailed timber. Six string down the sides and a stick in the
+middle make two, which is a rope ladder's whole bill of materials.
 
 Throw it at a wall or off a ledge and it unrolls downward, one piece of the stack per rung, until
 it reaches the ground or you run out. It takes its time about it: the first rung lands with the
@@ -54,12 +54,14 @@ else does: thrown into open air, it stays where it lands.
 
 ## Pandorical
 
-Better Ladders ships the 3D ladder model and the rope ladder's own model through Pandorical's
-content sync.
+Better Ladders runs server-side, and Pandorical is required there: the server will not load this
+mod without it. It ships the 3D ladder model and the rope ladder's own block, item and model
+through Pandorical's content sync.
 
 **The Pandorical mod must be installed client-side** to see either. Without it a client sees
-vanilla's flat ladder and an untextured rope ladder; everything still works, including ladders
-standing unsupported and ropes unrolling, because all of that is decided on the server.
+vanilla's flat ladder, and ladders standing unsupported still work, because that is decided on the
+server. The rope ladder is a real registered block, so a client without Pandorical cannot render it
+and cannot receive chunks containing one.
 
 ## Development
 
