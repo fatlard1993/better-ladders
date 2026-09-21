@@ -1,0 +1,18 @@
+{
+	"schemaVersion": 1,
+	"id": "better-ladders-gametest",
+	"version": "1.0.0",
+	"name": "Better Ladders smoke test",
+	"description": "Loads the mod, joins a world, and fails if anything on the way threw.",
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"justfatlard.better_ladders.gametest.SmokeTest"
+		]
+	},
+	"depends": {
+		"better-ladders-justfatlard": "*",
+		"fabric-client-gametest-api-v1": "*"
+	}
+}
