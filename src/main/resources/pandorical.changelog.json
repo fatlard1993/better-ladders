@@ -7,8 +7,11 @@
       "The same mod under a new version number, so the release had a file that could go up."
     ],
     "1.0.0": [
-      "A ladder is two rails and four rungs with depth to them rather than one flat picture, cut from vanilla's own texture so resource packs still retexture it, and it holds itself up in open air.",
-      "Six string and a stick make two rope ladders, which unroll rung by rung down the drop below them, with the sound of it."
+      "A ladder is two rails and four rungs with depth, not one flat picture.",
+      "Cut from vanilla's own texture, so resource packs still retexture it.",
+      "It holds itself up in open air.",
+      "Six string and a stick make two rope ladders.",
+      "They unroll rung by rung down the drop below them, with the sound of it."
     ]
   }
 }
