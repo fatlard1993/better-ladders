@@ -3,6 +3,9 @@
     "Ladders with real rails and rungs that stand up wherever you put them, with no wall needed behind, and a rope ladder that unrolls itself down a drop."
   ],
   "versions": {
+    "1.0.2": [
+      "Release notes rewritten to read plainly; nothing in play changes."
+    ],
     "1.0.1": [
       "Version bump only; nothing changed."
     ],
