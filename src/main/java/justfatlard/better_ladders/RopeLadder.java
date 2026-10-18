@@ -113,6 +113,18 @@ public final class RopeLadder {
 			: clicked.relative(playerFacing);
 	}
 
+	/**
+	 * The last rung of the rope this one hangs in, which is where a rope added to it carries on
+	 * from: clicking any rung lengthens the rope rather than hanging a second one beside it.
+	 */
+	public static BlockPos bottomOf(net.minecraft.world.level.Level level, BlockPos rung) {
+		BlockPos.MutableBlockPos at = rung.mutable();
+		for (int i = 0; i < MAX_DROP && level.getBlockState(at.below()).getBlock() instanceof RopeLadderBlock; i++) {
+			at.move(Direction.DOWN);
+		}
+		return at.immutable();
+	}
+
 	/** A ladder faces away from whatever holds it, which is the block it was hung off. */
 	public static Direction facingFor(Direction clickedFace, Direction playerFacing) {
 		return clickedFace.getAxis().isHorizontal() ? clickedFace : playerFacing;

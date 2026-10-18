@@ -10,6 +10,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LadderBlock;
 
 /**
  * A coil of ladder that unrolls itself.
@@ -37,8 +38,17 @@ public class RopeLadderItem extends BlockItem {
 		Direction clickedFace = context.getClickedFace();
 		Direction playerFacing = context.getHorizontalDirection().getOpposite();
 
-		BlockPos start = RopeLadder.startFrom(context.getClickedPos(), clickedFace, playerFacing);
-		Direction facing = RopeLadder.facingFor(clickedFace, playerFacing);
+		BlockPos clicked = context.getClickedPos();
+		BlockPos start;
+		Direction facing;
+		if (level.getBlockState(clicked).getBlock() instanceof RopeLadderBlock) {
+			BlockPos bottom = RopeLadder.bottomOf(level, clicked);
+			start = bottom.below();
+			facing = level.getBlockState(bottom).getValue(LadderBlock.FACING);
+		} else {
+			start = RopeLadder.startFrom(clicked, clickedFace, playerFacing);
+			facing = RopeLadder.facingFor(clickedFace, playerFacing);
+		}
 
 		ItemStack stack = context.getItemInHand();
 		int thrown = RopeLadder.throwDown(serverLevel, start, facing, stack.getCount());
