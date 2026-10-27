@@ -3,6 +3,9 @@
     "Ladders with real rails and rungs that stand up wherever you put them, with no wall needed behind, and a rope ladder that unrolls itself down a drop."
   ],
   "versions": {
+    "1.0.4": [
+      "Mod Menu's Donate button leads to sponsoring the author on GitHub. Nothing in play changes."
+    ],
     "1.0.3": [
       "A rope ladder used on a rope ladder carries on down from its bottom rung instead of hanging beside it."
     ],
