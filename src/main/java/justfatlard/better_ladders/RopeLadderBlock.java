@@ -5,8 +5,12 @@ import java.util.List;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 
 /**
  * A rope ladder, which is a ladder that hangs rather than one that is nailed on.
@@ -16,7 +20,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * without a wall - which a hanging rope needs more than anything else does.
  *
  * <p>What is its own is the cut. Take out a rung and everything under it comes down, because the
- * only thing holding the rest up was that rung.
+ * only thing holding the rest up was that rung. And the haul: sneak and use the top rung, and the
+ * whole rope comes up into your inventory.
  */
 public class RopeLadderBlock extends LadderBlock {
 	/** As deep as one cut reaches. A rope longer than this is not a rope, it is a bug. */
@@ -24,6 +29,14 @@ public class RopeLadderBlock extends LadderBlock {
 
 	public RopeLadderBlock(Properties settings) {
 		super(settings);
+	}
+
+	@Override
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
+			BlockHitResult hit) {
+		if (!player.isSecondaryUseActive() || !RopeLadder.isTop(level, pos)) return InteractionResult.PASS;
+		if (level instanceof ServerLevel serverLevel) RopeLadder.rollUp(serverLevel, pos, player);
+		return InteractionResult.SUCCESS;
 	}
 
 	@Override

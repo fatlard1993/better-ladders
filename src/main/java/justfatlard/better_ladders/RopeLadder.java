@@ -12,7 +12,10 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -117,12 +120,44 @@ public final class RopeLadder {
 	 * The last rung of the rope this one hangs in, which is where a rope added to it carries on
 	 * from: clicking any rung lengthens the rope rather than hanging a second one beside it.
 	 */
-	public static BlockPos bottomOf(net.minecraft.world.level.Level level, BlockPos rung) {
+	public static BlockPos bottomOf(Level level, BlockPos rung) {
 		BlockPos.MutableBlockPos at = rung.mutable();
 		for (int i = 0; i < MAX_DROP && level.getBlockState(at.below()).getBlock() instanceof RopeLadderBlock; i++) {
 			at.move(Direction.DOWN);
 		}
 		return at.immutable();
+	}
+
+	/** Whether this rung is the one the rope hangs from, which is the one it is rolled up by. */
+	public static boolean isTop(Level level, BlockPos rung) {
+		return !(level.getBlockState(rung.above()).getBlock() instanceof RopeLadderBlock);
+	}
+
+	/**
+	 * Haul the rope up by its top rung and coil it into the player's inventory.
+	 *
+	 * <p>Lifted from the bottom up, so each rung's own cut finds nothing under it and drops
+	 * nothing. A rope still falling loses its top and hands the rest back where it stopped, as it
+	 * would for any cut. What the inventory cannot take lands at the player's feet.
+	 */
+	public static void rollUp(ServerLevel level, BlockPos top, Player player) {
+		List<BlockPos> rungs = new ArrayList<>();
+		BlockPos.MutableBlockPos at = top.mutable();
+		while (rungs.size() < MAX_DROP && level.getBlockState(at).getBlock() instanceof RopeLadderBlock) {
+			rungs.add(at.immutable());
+			at.move(Direction.DOWN);
+		}
+
+		for (int i = rungs.size() - 1; i >= 0; i--) {
+			BlockPos rung = rungs.get(i);
+			level.setBlock(rung, level.getFluidState(rung).createLegacyBlock(), Block.UPDATE_ALL);
+		}
+
+		level.playSound(null, top, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.0F, 1.2F);
+		int stack = Main.ROPE_LADDER_ITEM.getDefaultMaxStackSize();
+		for (int left = rungs.size(); left > 0; left -= stack) {
+			player.getInventory().placeItemBackInInventory(new ItemStack(Main.ROPE_LADDER_ITEM, Math.min(left, stack)), Prediction.SERVER_ONLY);
+		}
 	}
 
 	/** A ladder faces away from whatever holds it, which is the block it was hung off. */

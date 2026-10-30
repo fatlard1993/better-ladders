@@ -26,6 +26,8 @@ Throw it at a wall or off a ledge and it unrolls downward, one piece of the stac
 
 **Cut it anywhere and everything under it comes down.** The only thing holding the rest of the rope up was the rung you just took, so the whole drop lands on the floor as rope ladder again - which is also how you get one back down off a cliff you have finished with, in one hit rather than sixty. Cut it while it is still falling, or put something in its way, and the part that never got down lands beside it as pieces.
 
+**Or haul it up.** Sneak and use the top rung, empty-handed or with rope ladder in hand, and the whole rope comes up into your inventory, with nothing to pick up off the floor. What your inventory has no room for lands at your feet.
+
 Nothing is lost doing it. Every rung dropped is a rung returned, so the coil and what it becomes are the same thing in two shapes.
 
 This mod is also the reason a ladder needs no wall, and the rope needs that more than anything else does: thrown into open air, it stays where it lands.

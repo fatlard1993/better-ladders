@@ -39,6 +39,13 @@ public class RopeLadderItem extends BlockItem {
 		Direction playerFacing = context.getHorizontalDirection().getOpposite();
 
 		BlockPos clicked = context.getClickedPos();
+		// Sneaking, the coil in hand takes the rope back as an empty hand would.
+		if (player.isSecondaryUseActive() && level.getBlockState(clicked).getBlock() instanceof RopeLadderBlock
+				&& RopeLadder.isTop(level, clicked)) {
+			RopeLadder.rollUp(serverLevel, clicked, player);
+			return InteractionResult.SUCCESS;
+		}
+
 		BlockPos start;
 		Direction facing;
 		if (level.getBlockState(clicked).getBlock() instanceof RopeLadderBlock) {
