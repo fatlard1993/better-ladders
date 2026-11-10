@@ -3,6 +3,9 @@
     "Ladders with real rails and rungs that stand up wherever you put them, with no wall needed behind, and a rope ladder that unrolls itself down a drop."
   ],
   "versions": {
+    "1.0.6": [
+      "Drop changelog notes for changes nothing in the game shows."
+    ],
     "1.0.5": [
       "Sneak and use the top rung of a rope ladder to haul the whole rope up into your inventory."
     ],
