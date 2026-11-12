@@ -1,0 +1,37 @@
+{
+  "demo": {
+    "name": "Better Ladders",
+    "icon": "better-ladders-justfatlard:rope_ladder",
+    "about": [
+      "Ladders with real rails and rungs that stay wherever you put them, wall or no wall, and a rope ladder that unrolls itself down a drop.",
+      "Find a cliff, or build a tower, and use a rope ladder off the edge to watch it roll down. Cut a rung to drop the rest, or sneak and use the top rung to haul it all back up."
+    ]
+  },
+  "pvp_preset": 1,
+  "needs": ["better-ladders-justfatlard"],
+  "preset": {
+    "name": "Better Ladders",
+    "icon": "better-ladders-justfatlard:rope_ladder",
+    "pvp": false,
+    "game_mode": "survival",
+    "entry_kit": [
+      {"slot": 0, "item": {"id": "better-ladders-justfatlard:rope_ladder", "count": 64}},
+      {"slot": 1, "item": {"id": "minecraft:ladder", "count": 64}},
+      {"slot": 2, "item": {"id": "minecraft:cobblestone", "count": 64}},
+      {"slot": 3, "item": {"id": "minecraft:iron_pickaxe", "count": 1}},
+      {"slot": 4, "item": {"id": "minecraft:iron_shovel", "count": 1}},
+      {"slot": 5, "item": {"id": "minecraft:cooked_beef", "count": 8}},
+      {"slot": 9, "item": {"id": "better-ladders-justfatlard:rope_ladder", "count": 64}},
+      {"slot": 10, "item": {"id": "minecraft:cobblestone", "count": 64}}
+    ],
+    "respawn_kit": "entry",
+    "goal": "time",
+    "mobs": "off",
+    "life": 15,
+    "size": 3,
+    "world": "overworld",
+    "shape": "natural",
+    "biome": "minecraft:windswept_hills",
+    "weather": "clear"
+  }
+}
