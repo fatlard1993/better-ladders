@@ -3,6 +3,9 @@
     "Ladders with real rails and rungs that stand up wherever you put them, with no wall needed behind, and a rope ladder that unrolls itself down a drop."
   ],
   "versions": {
+    "1.0.7": [
+      "A demo to play in PvP Dimensions' onboarding."
+    ],
     "1.0.6": [
       "Drop changelog notes for changes nothing in the game shows."
     ],
