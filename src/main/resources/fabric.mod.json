@@ -3,7 +3,7 @@
   "id": "better-ladders-justfatlard",
   "version": "${version}",
   "name": "Better Ladders",
-  "description": "Ladders with rails and rungs, standing wherever you put them, and a rope ladder that unrolls itself",
+  "description": "Ladders with rails and rungs that stand on their own, and a rope ladder that unrolls",
   "authors": [
     "justfatlard"
   ],
